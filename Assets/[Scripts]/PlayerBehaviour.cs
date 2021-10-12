@@ -8,6 +8,10 @@ public class PlayerBehaviour : MonoBehaviour
     public GameBounds bounds;
     public float speed = 0.0f;
 
+    [Header("Bullet")]
+    public GameObject BulletPrefab;
+    public GameObject bulletSpawn;
+
     private float horizontal;
     private Rigidbody2D rBody;
 
@@ -22,7 +26,10 @@ public class PlayerBehaviour : MonoBehaviour
     {
         horizontal = Input.GetAxisRaw("Horizontal");
 
-        Debug.Log("update");
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            BulletManager.Instance.GetBullet(transform.position);
+        }
 
     }
 

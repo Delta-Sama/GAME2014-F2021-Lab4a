@@ -12,8 +12,6 @@ public class EnemyBehaviour : MonoBehaviour
     public GameObject BulletPrefab;
     public GameObject bulletSpawn;
 
-    public BulletManager bulletManager;
-
     private float startingPoint = 0.0f;
     private float randomSpeed;
 
@@ -22,8 +20,6 @@ public class EnemyBehaviour : MonoBehaviour
     {
         randomSpeed = Random.Range(speedBounds.min, speedBounds.max);
         startingPoint = Random.Range(gameBounds.min + randomSpeed, gameBounds.max - randomSpeed);
-
-        bulletManager = FindObjectOfType<BulletManager>();
     }
 
     private float lastBulletTime = 0.0f;
@@ -35,7 +31,7 @@ public class EnemyBehaviour : MonoBehaviour
             lastBulletTime = Time.time + BULLET_COOLDOWN;
             BULLET_COOLDOWN = Random.Range(0.2f, 0.4f);
 
-            bulletManager.GetBullet(transform.position);
+            BulletManager.Instance.GetBullet(bulletSpawn.transform.position);
         }
 
         transform.position = new Vector2(startingPoint + (Mathf.PingPong(Time.time, randomSpeed) * 2 - randomSpeed), transform.position.y);
