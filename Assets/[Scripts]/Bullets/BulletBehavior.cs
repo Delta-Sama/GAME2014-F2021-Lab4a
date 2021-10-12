@@ -10,24 +10,17 @@ public class BulletBehavior : MonoBehaviour
     public BulletDirection bulletDirection;
 
     private Vector3 direction = Vector2.down;
+    private Vector2[] directions =
+        {
+            new Vector2(0, 1),  // UP
+            new Vector2(1, 0),  // RIGHT
+            new Vector2(0, -1), // DOWN
+            new Vector2(-1, 0)  // LEFT
+        };
 
     public void Start()
     {
-        switch(bulletDirection)
-        {
-            case BulletDirection.UP:
-                direction = new Vector2(0, 1);
-                break;
-            case BulletDirection.RIGHT:
-                direction = new Vector2(1, 0);
-                break;
-            case BulletDirection.DOWN:
-                direction = new Vector2(0, -1);
-                break;
-            case BulletDirection.LEFT:
-                direction = new Vector2(-1, 0);
-                break;
-        }
+        direction = directions[(int)bulletDirection];
     }
 
     private void FixedUpdate()

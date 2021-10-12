@@ -6,7 +6,7 @@ public class EnemyBulletManager : BulletManager
 {
     public static EnemyBulletManager Instance;
 
-    private void Start()
+    public override void Start()
     {
         base.Start();
 
@@ -17,7 +17,7 @@ public class EnemyBulletManager : BulletManager
     {
         base.AddBullet();
 
-        GameObject bullet = BulletFactory.Instance.CreateBullet(BulletType.ENEMY);
+        GameObject bullet = EnemyBulletFactory.Instance.CreateBullet();
 
         bulletPool.Enqueue(bullet);
     }

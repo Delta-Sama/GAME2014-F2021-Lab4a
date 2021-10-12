@@ -7,7 +7,7 @@ public class BulletManager : MonoBehaviour
     [HideInInspector] public Queue<GameObject> bulletPool;
     public int bulletNumber;
 
-    public void Start()
+    public virtual void Start()
     {
         bulletPool = new Queue<GameObject>();
     }

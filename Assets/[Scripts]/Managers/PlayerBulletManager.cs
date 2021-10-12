@@ -6,7 +6,7 @@ public class PlayerBulletManager : BulletManager
 {
     public static PlayerBulletManager Instance;
 
-    private void Start()
+    public override void Start()
     {
         base.Start();
 
@@ -17,7 +17,7 @@ public class PlayerBulletManager : BulletManager
     {
         base.AddBullet();
 
-        GameObject bullet = BulletFactory.Instance.CreateBullet(BulletType.PLAYER);
+        GameObject bullet = PlayerBulletFactory.Instance.CreateBullet();
 
         bulletPool.Enqueue(bullet);
     }
