@@ -28,7 +28,7 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            BulletManager.Instance.GetBullet(transform.position);
+            PlayerBulletManager.Instance.GetBullet(bulletSpawn.transform.position);
         }
 
     }

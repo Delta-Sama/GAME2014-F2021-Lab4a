@@ -9,13 +9,10 @@ public class BulletBehavior : MonoBehaviour
 
     public BulletDirection bulletDirection;
 
-    private BulletManager bulletManager;
     private Vector3 direction = Vector2.down;
 
-    private void Start()
+    public void Start()
     {
-        bulletManager = FindObjectOfType<BulletManager>();
-
         switch(bulletDirection)
         {
             case BulletDirection.UP:
@@ -39,7 +36,10 @@ public class BulletBehavior : MonoBehaviour
 
         if (transform.position.y > bulletBounds.max || transform.position.y < bulletBounds.min)
         {
-            bulletManager.ReturnBullet(transform.gameObject);
+            ReturnToPool();
         }
     }
+
+    public virtual void ReturnToPool() { }
+
 }

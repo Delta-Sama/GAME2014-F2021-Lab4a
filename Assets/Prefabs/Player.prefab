@@ -193,3 +193,5 @@ MonoBehaviour:
     min: -1.85
     max: 1.85
   speed: 2100
+  BulletPrefab: {fileID: 7845823967529944258, guid: 185e014f1f6e50a4fbb9a747c348b7ed, type: 3}
+  bulletSpawn: {fileID: 559977098588999251}

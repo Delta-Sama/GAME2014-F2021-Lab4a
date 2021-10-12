@@ -7,29 +7,12 @@ public class BulletManager : MonoBehaviour
     [HideInInspector] public Queue<GameObject> bulletPool;
     public int bulletNumber;
 
-    public static BulletManager Instance;
-
-    private void Start()
+    public void Start()
     {
-        Instance = this;
-
         bulletPool = new Queue<GameObject>();
-
-        BuildBulletPool();
     }
 
-    public void BuildBulletPool()
-    {
-        for (int i = 0; i < bulletNumber; i++)
-            AddBullet();
-    }
-
-    private void AddBullet()
-    {
-        GameObject bullet = BulletFactory.Instance.CreateBullet();
-
-        bulletPool.Enqueue(bullet);
-    }
+    protected virtual void AddBullet() { }
 
     public GameObject GetBullet(Vector2 position)
     {

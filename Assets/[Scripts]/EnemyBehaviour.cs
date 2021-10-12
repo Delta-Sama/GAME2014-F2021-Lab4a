@@ -31,7 +31,8 @@ public class EnemyBehaviour : MonoBehaviour
             lastBulletTime = Time.time + BULLET_COOLDOWN;
             BULLET_COOLDOWN = Random.Range(0.2f, 0.4f);
 
-            BulletManager.Instance.GetBullet(bulletSpawn.transform.position);
+            EnemyBulletManager.Instance.GetBullet(bulletSpawn.transform.position);
+            //BulletManager.Instance.GetBullet(bulletSpawn.transform.position);
         }
 
         transform.position = new Vector2(startingPoint + (Mathf.PingPong(Time.time, randomSpeed) * 2 - randomSpeed), transform.position.y);
